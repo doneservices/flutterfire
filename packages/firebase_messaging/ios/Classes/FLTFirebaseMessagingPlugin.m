@@ -39,6 +39,7 @@ static NSObject<FlutterPluginRegistrar> *_registrar;
       [[FLTFirebaseMessagingPlugin alloc] initWithChannel:channel];
   [registrar addApplicationDelegate:instance];
   [registrar addMethodCallDelegate:instance channel:channel];
+  [registrar publish:instance];
 
   SEL sel = NSSelectorFromString(@"registerLibrary:withVersion:");
   if ([FIRApp respondsToSelector:sel]) {
